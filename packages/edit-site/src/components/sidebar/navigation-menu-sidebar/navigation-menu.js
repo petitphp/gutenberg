@@ -54,7 +54,6 @@ export default function NavigationMenu( { innerBlocks, id } ) {
 				id={ id }
 				showNestedBlocks
 				expandNested={ false }
-				__experimentalFeatures
 				__experimentalPersistentListViewFeatures
 			/>
 		</>
