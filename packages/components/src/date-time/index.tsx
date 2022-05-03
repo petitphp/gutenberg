@@ -5,6 +5,7 @@
 // See: https://github.com/airbnb/react-dates#initialize
 import 'react-dates/initialize';
 import { noop } from 'lodash';
+import type { ForwardedRef } from 'react';
 
 /**
  * WordPress dependencies
@@ -18,6 +19,7 @@ import { __, _x } from '@wordpress/i18n';
 import Button from '../button';
 import { default as DatePicker } from './date';
 import { default as TimePicker } from './time';
+import type { DateTimePickerProps } from './types';
 
 export { DatePicker, TimePicker };
 
@@ -29,8 +31,8 @@ function DateTimePicker(
 		onMonthPreviewed = noop,
 		onChange,
 		events,
-	},
-	ref
+	}: DateTimePickerProps,
+	ref: ForwardedRef< any >
 ) {
 	const [ calendarHelpIsVisible, setCalendarHelpIsVisible ] = useState(
 		false
@@ -148,7 +150,7 @@ function DateTimePicker(
 					<Button
 						className="components-datetime__date-reset-button"
 						variant="link"
-						onClick={ () => onChange( null ) }
+						onClick={ () => onChange?.( null ) }
 					>
 						{ __( 'Reset' ) }
 					</Button>
